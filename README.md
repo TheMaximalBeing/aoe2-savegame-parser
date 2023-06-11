@@ -17,10 +17,10 @@ Instructions:
   (e.g. see https://www.python.org/downloads/)
 
 - install dependencies
-  pip3 install pandas
-  pip3 install regex
-  pip3 install openpyxl
-  pip3 install zlib
+  -  pip3 install pandas
+  -  pip3 install regex
+  -  pip3 install openpyxl
+  -  pip3 install zlib
 
 - If using vscode just press F5 to run current file
   (you will need the python extension)
