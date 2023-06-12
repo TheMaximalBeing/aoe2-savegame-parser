@@ -5,7 +5,7 @@
 
 
 # below are the structures found in the AOE2 save file format (.gaz)
-# thise format is very similar to the recorded game format
+# this format is very similar to the recorded game format
 # in fact the recorded game format just consists of the savegame data
 # plus a list of "GameData" structures at the end
 

@@ -29,6 +29,9 @@ _val_to_dtype = None
 _val_to_action = None
 _val_to_logic = None
 _val_to_fact = None
+_nargs_action = None
+_nargs_logic = None
+_nargs_fact = None
 _constfile = None
 _ptime = None
 
@@ -37,6 +40,10 @@ def _setup():
 
   global _setup_done, _dtype_to_val, _action_to_val, _logic_to_val, _fact_to_val
   global _val_to_dtype, _val_to_action, _val_to_logic, _val_to_fact, _constfile
+  global _nargs_action, _nargs_logic, _nargs_fact
+
+  if _setup_done:
+    return
 
   rule_info_name = "data/rule-info.xlsx"
   const_file_name = "data/constants.per"
@@ -50,6 +57,10 @@ def _setup():
   _action_to_val = dict(zip(df2.values[:,0], df2.values[:,1]))
   _logic_to_val = dict(zip(df3.values[:,0], df3.values[:,1]))
   _fact_to_val = dict(zip(df4.values[:,0], df4.values[:,1]))
+
+  _nargs_action = dict(zip(df2.values[:,1], df2.values[:,2]))
+  _nargs_logic = dict(zip(df3.values[:,1], df3.values[:,2]))
+  _nargs_fact = dict(zip(df4.values[:,1], df4.values[:,2]))
 
   _val_to_dtype = { v:k for k,v in _dtype_to_val.items() }
   _val_to_action = { v:k for k,v in _action_to_val.items() }
@@ -80,8 +91,7 @@ def compile_ai_script(script_name):
   ### first-time setup
 
   _ptime = time.time()
-  if not _setup_done:
-    _setup()
+  _setup()
   _benchmark("setup")
 
   ### load ai script; append the constants file

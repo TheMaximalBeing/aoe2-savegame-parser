@@ -26,13 +26,13 @@ def get_helper(typee, size):
   elif typee == 'float':
     return to_float(data[start:index])
   elif typee == 'string':
-    return str(data[start:index])
+    return bytes(data[start:index])
   elif typee == 'nstring':
     end = index
     while data[end] != 0:
       end += 1
     index = end+1
-    return str(data[start:end+1])
+    return bytes(data[start:end+1])
 
   raise Exception("invalid")
 

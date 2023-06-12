@@ -10,6 +10,7 @@ A WIP tool for:
 See following files for examples:
 - test_compile_ai.py
 - test_savegame.py
+- test_extract_ai.py
 
 Instructions:
 
